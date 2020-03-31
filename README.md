@@ -1,6 +1,6 @@
 # Qoollo.Redis.Net
 
-Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis.
+Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide you simple tool to work with redis in your .Net.Framework and .Net.Core projects.
 
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
