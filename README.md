@@ -27,7 +27,7 @@ services.AddRedisService(Configuration.GetSection("Redis"));
 
 ## Usage
 
-This wrapper provides IRedisService interface via which one you can inject RedisService dependecy in your class, such as:
+This wrapper provides `IRedisService` interface via which one you can inject `RedisService` dependecy in your class, such as:
 ```
 public class MyClass
 {
@@ -39,7 +39,7 @@ public class MyClass
     }
 }
 ```
-IRedisService provides the following methods to use:
+`IRedisService` provides the following methods to use:
 ```
 public interface IRedisService
 {
