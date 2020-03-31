@@ -3,6 +3,17 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>Qoollo.Redis.Net</RootNamespace>
+        <Version>1.0.1</Version>
+        <Authors>Denis Babarykin, Ivan Klimov</Authors>
+        <Company>qoollo</Company>
+        <PackageTags>Qoollo Redis NetFramework NetCore Core StackExchange.Redis</PackageTags>
+        <Description>
+            Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide you simple tool to work with redis in your .Net Framework and .Net Core projects.
+        </Description>
+        <PackageLicenseUrl>https://github.com/qoollo/Qoollo.Redis.Net/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/qoollo/Qoollo.Redis.Net</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/qoollo/Qoollo.Redis.Net</RepositoryUrl>
+        <Copyright>Copyright 2020</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
