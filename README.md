@@ -5,7 +5,7 @@ Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis.
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
 ```
-PM> Install-Package Qoollo.Redis.Net
+PM> Install-Package Qoollo.Redis.Net -Version 1.0.0
 ```
 After that you need to specify Redis configuration section in appsettings.json
 ```
