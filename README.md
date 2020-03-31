@@ -1,0 +1,1 @@
+# Qoollo.Redis.Net
