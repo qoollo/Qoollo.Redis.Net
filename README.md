@@ -55,7 +55,7 @@ public class MyClass
 
 ### SubscribeToChannel
 *Method signature:* `void SubscribeToChannel(string channel, Action<string, byte[]> handler);`  
-*Description:* Disconnect from Redis.  
+*Description:* Subscribe handler to channel.  
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Parameters:*  
 * `channel` - Channel's name.
