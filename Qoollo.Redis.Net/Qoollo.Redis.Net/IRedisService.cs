@@ -25,6 +25,14 @@ namespace Qoollo.Redis.Net
         /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
         void SubscribeToChannel(string channel, Action<string, byte[]> handler);
 
+
+        /// <summary>Publish data to channel.</summary>
+        /// <param name="channel">Channel's name.</param>
+        /// <param name="data">Publishing data</param>
+        /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
+        void PublishToChannel(string channel, byte[] data);
+
+
         /// <summary>Adds key with given data to Redis.</summary>
         /// <returns>True if key has been already existed and was overwritten, false if not.</returns>
         /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>

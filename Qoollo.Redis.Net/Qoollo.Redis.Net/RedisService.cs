@@ -17,8 +17,6 @@ namespace Qoollo.Redis.Net
         
         public RedisService(ILogger<RedisService> logger, IRedisServiceConfiguration configuration)
         {
-            logger.LogTrace("Constructing VideoAnalyzerRemoteFacade.");
-
             _logger = logger;
             _configuration = configuration;
 
@@ -168,6 +166,16 @@ namespace Qoollo.Redis.Net
 
             _redis.GetSubscriber().Subscribe(channel, (ch, v) => handler(ch, v));
             _logger.LogInformation($"Subscribed to Redis channel '{channel}'.");
+        }
+        
+        public void PublishToChannel(string channel, byte[] data)
+        {
+            if (!IsConnected)
+                throw new RedisNotConnectedException($"Can't publish to channel '{channel}': " +
+                                                     "there is no connection to Redis.");
+
+            _redis.GetSubscriber().Publish(channel, data);
+            _logger.LogInformation($"Data was successfully published to Redis channel '{channel}'.");
         }
 
 
