@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qoollo.Redis.Net", "Qoollo.Redis.Net\Qoollo.Redis.Net.csproj", "{DCE49467-02BA-4E7D-A151-DFDB070F6257}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{6ECDD73F-2296-4B99-94F5-094393416895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublisherConsoleApp", "TestApps\PublisherConsoleApp\PublisherConsoleApp.csproj", "{8114B611-D35B-4462-AC44-63612681A36D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberConsoleApp", "TestApps\SubscriberConsoleApp\SubscriberConsoleApp.csproj", "{1EC3296B-F70D-41B2-9D13-55B9922AA0E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{DCE49467-02BA-4E7D-A151-DFDB070F6257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCE49467-02BA-4E7D-A151-DFDB070F6257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCE49467-02BA-4E7D-A151-DFDB070F6257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8114B611-D35B-4462-AC44-63612681A36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8114B611-D35B-4462-AC44-63612681A36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8114B611-D35B-4462-AC44-63612681A36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8114B611-D35B-4462-AC44-63612681A36D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC3296B-F70D-41B2-9D13-55B9922AA0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC3296B-F70D-41B2-9D13-55B9922AA0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC3296B-F70D-41B2-9D13-55B9922AA0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC3296B-F70D-41B2-9D13-55B9922AA0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8114B611-D35B-4462-AC44-63612681A36D} = {6ECDD73F-2296-4B99-94F5-094393416895}
+		{1EC3296B-F70D-41B2-9D13-55B9922AA0E1} = {6ECDD73F-2296-4B99-94F5-094393416895}
 	EndGlobalSection
 EndGlobal
