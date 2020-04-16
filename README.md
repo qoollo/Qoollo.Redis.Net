@@ -5,7 +5,7 @@ Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide 
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
 ```
-PM> Install-Package Qoollo.Redis.Net -Version 1.0.0
+PM> Install-Package Qoollo.Redis.Net -Version 1.0.1
 ```
 After that you need to specify Redis configuration section in appsettings.json
 ```
@@ -55,11 +55,19 @@ public class MyClass
 
 ### SubscribeToChannel
 *Method signature:* `void SubscribeToChannel(string channel, Action<string, byte[]> handler);`  
-*Description:* Disconnect from Redis.  
+*Description:* Subscribe handler to channel.  
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Parameters:*  
 * `channel` - Channel's name.
 * `handler` - Handler for event of receiving message from channel. First arg is channel's name (string), second is received message from redis (byte[]).
+
+### PublishToChannel
+*Method signature:* `void PublishToChannel(string channel, byte[] data);`  
+*Description:* Publish data to channel.  
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Parameters:*  
+* `channel` - Channel's name.
+* `data` - Publishing data
 
 ### SetKeyAsync
 *Method signature:* `Task<bool> SetKeyAsync(string key, byte[] data);`  
