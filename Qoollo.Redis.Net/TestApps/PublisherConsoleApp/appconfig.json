@@ -1,6 +1,6 @@
 ﻿{
   "Redis": {
-    "RedisIp": "10.5.7.148",
+    "RedisIp": "some_ip",
     "RedisPort": 6379,
     "RedisSyncOperationsTimeoutMs": 5000,
     "ClientName": "PublisherService"
