@@ -61,6 +61,14 @@ public class MyClass
 * `channel` - Channel's name.
 * `handler` - Handler for event of receiving message from channel. First arg is channel's name (string), second is received message from redis (byte[]).
 
+### PublishToChannel
+*Method signature:* `void PublishToChannel(string channel, byte[] data);`  
+*Description:* Publish data to channel.  
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Parameters:*  
+* `channel` - Channel's name.
+* `data` - Publishing data
+
 ### SetKeyAsync
 *Method signature:* `Task<bool> SetKeyAsync(string key, byte[] data);`  
 *Description:* Adds key with given data to Redis.  
