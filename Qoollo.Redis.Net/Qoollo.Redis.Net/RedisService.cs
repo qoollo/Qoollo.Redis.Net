@@ -172,7 +172,7 @@ namespace Qoollo.Redis.Net
             var popvalue = await ListLeftPopAsync(key);
             while (popvalue == null)
             {
-                Thread.Sleep(_configuration.RedisSyncOperationsTimeoutMs);
+                Thread.Sleep(_configuration.RedisBlockingOperationsTimeoutMs);
                 popvalue = await ListLeftPopAsync(key);
             }
 
@@ -184,7 +184,7 @@ namespace Qoollo.Redis.Net
             var popvalue = await ListRightPopAsync(key);
             while (popvalue == null)
             {
-                Thread.Sleep(_configuration.RedisSyncOperationsTimeoutMs);
+                Thread.Sleep(_configuration.RedisBlockingOperationsTimeoutMs);
                 popvalue = await ListRightPopAsync(key);
             }
 

@@ -7,6 +7,8 @@
         public int RedisPort { get; set; }
 
         public int RedisSyncOperationsTimeoutMs { get; set; }
+        
+        public int RedisBlockingOperationsTimeoutMs { get; set; }
 
         public string ClientName { get; set; }
     }
