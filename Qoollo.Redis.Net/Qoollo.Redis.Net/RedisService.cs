@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Qoollo.Redis.Net.Configuration;
@@ -148,6 +149,46 @@ namespace Qoollo.Redis.Net
                 throw new RedisNotConnectedException($"Can't add data to list: there is no connection to Redis.");
 
             return await _redis.GetDatabase().ListRightPushAsync(key, data);
+        }
+        
+        public async Task<byte[]> ListLeftPopAsync(string key)
+        {
+            if (!IsConnected)
+                throw new RedisNotConnectedException($"Can't add data to list: there is no connection to Redis.");
+
+            return await _redis.GetDatabase().ListLeftPopAsync(key);
+        }
+
+        public async Task<byte[]> ListRightPopAsync(string key)
+        {
+            if (!IsConnected)
+                throw new RedisNotConnectedException($"Can't add data to list: there is no connection to Redis.");
+
+            return await _redis.GetDatabase().ListRightPopAsync(key);
+        }
+        
+        public async Task<byte[]> ListLeftBlockingPopAsync(string key)
+        {
+            var popvalue = await ListLeftPopAsync(key);
+            while (popvalue == null)
+            {
+                Thread.Sleep(_configuration.RedisSyncOperationsTimeoutMs);
+                popvalue = await ListLeftPopAsync(key);
+            }
+
+            return popvalue;
+        }
+
+        public async Task<byte[]> ListRightBlockingPopAsync(string key)
+        {
+            var popvalue = await ListRightPopAsync(key);
+            while (popvalue == null)
+            {
+                Thread.Sleep(_configuration.RedisSyncOperationsTimeoutMs);
+                popvalue = await ListRightPopAsync(key);
+            }
+
+            return popvalue;
         }
 
         public async Task<long> ListRemoveAsync(string key, byte[] data)

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>Qoollo.Redis.Net</RootNamespace>
-        <Version>1.0.2</Version>
+        <Version>1.0.4</Version>
         <Authors>Denis Babarykin, Ivan Klimov</Authors>
         <Company>qoollo</Company>
         <PackageTags>Qoollo Redis NetFramework NetCore Core StackExchange.Redis</PackageTags>
