@@ -14,6 +14,7 @@ After that you need to specify Redis configuration section in appsettings.json
         "RedisIp": "<some_ip>",
         "RedisPort": 6379,
         "RedisSyncOperationsTimeoutMs": 5000,
+        "RedisBlockingOperationsTimeoutMs": 500,
         "ClientName": "<some_client_name>"
     },
 ...
