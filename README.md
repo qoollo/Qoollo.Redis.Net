@@ -136,7 +136,7 @@ public class MyClass
 
 ### ListRemoveAsync
 *Method signature:* `Task<long> ListRemoveAsync(string key, byte[] data);`  
-*Description:* Insert the specified value at the end of the list stored at key. If key does not exist, it is created as empty list before performing the push operations.  
+*Description:* Removes specified value from the list stored under key.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The length of the list after the remove operations.
 
