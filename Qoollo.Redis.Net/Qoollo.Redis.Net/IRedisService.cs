@@ -85,6 +85,20 @@ namespace Qoollo.Redis.Net
         /// <returns>The length of the list after the push operations.</returns>
         /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
         Task<long> ListRightPushAsync(string key, byte[] data);
+        
+        /// <summary>
+        /// Pop value from the head of the list stored at key. 
+        /// </summary>
+        /// <returns>The first element of the list stored at key</returns>
+        /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
+        Task<byte[]> ListLeftPopAsync(string key);
+
+        /// <summary>
+        /// Pop value from the end of the list stored at key.
+        /// </summary>
+        /// <returns>The first element of the list stored at key</returns>
+        /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
+        Task<byte[]> ListRightPopAsync(string key);
 
         /// <summary>
         /// Removes specified value from the list stored under key.

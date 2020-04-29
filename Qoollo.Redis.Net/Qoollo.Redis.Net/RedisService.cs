@@ -149,6 +149,22 @@ namespace Qoollo.Redis.Net
 
             return await _redis.GetDatabase().ListRightPushAsync(key, data);
         }
+        
+        public async Task<byte[]> ListLeftPopAsync(string key)
+        {
+            if (!IsConnected)
+                throw new RedisNotConnectedException($"Can't add data to list: there is no connection to Redis.");
+
+            return await _redis.GetDatabase().ListLeftPopAsync(key);
+        }
+
+        public async Task<byte[]> ListRightPopAsync(string key)
+        {
+            if (!IsConnected)
+                throw new RedisNotConnectedException($"Can't add data to list: there is no connection to Redis.");
+
+            return await _redis.GetDatabase().ListRightPopAsync(key);
+        }
 
         public async Task<long> ListRemoveAsync(string key, byte[] data)
         {
