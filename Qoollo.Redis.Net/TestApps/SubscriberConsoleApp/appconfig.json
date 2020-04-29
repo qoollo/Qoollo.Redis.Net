@@ -3,6 +3,7 @@
     "RedisIp": "some_ip",
     "RedisPort": 6379,
     "RedisSyncOperationsTimeoutMs": 5000,
+    "RedisBlockingOperationsTimeoutMs": 500,
     "ClientName": "SubscriberService"
   }
 }
