@@ -5,7 +5,7 @@ Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide 
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
 ```
-PM> Install-Package Qoollo.Redis.Net -Version 1.0.2
+PM> Install-Package Qoollo.Redis.Net -Version 1.0.3
 ```
 After that you need to specify Redis configuration section in appsettings.json
 ```
@@ -115,6 +115,18 @@ public class MyClass
 *Description:* Insert the specified value at the head of the list stored at key. If key does not exist, it is created as empty list before performing the push operations.  
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The length of the list after the push operations.
+
+### ListRightPophAsync
+*Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
+*Description:* Pop value from the end of the list stored at key.    
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Returns:* The last element of the list stored at key.  
+
+### ListLeftPopAsync
+*Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
+*Description:*  Pop value from the head of the list stored at key.    
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Returns:* The first element of the list stored at key.  
 
 ### ListRightPushAsync
 *Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
