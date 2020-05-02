@@ -5,7 +5,7 @@ Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide 
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
 ```
-PM> Install-Package Qoollo.Redis.Net -Version 1.0.3
+PM> Install-Package Qoollo.Redis.Net -Version 1.0.4
 ```
 After that you need to specify Redis configuration section in appsettings.json
 ```
@@ -14,6 +14,7 @@ After that you need to specify Redis configuration section in appsettings.json
         "RedisIp": "<some_ip>",
         "RedisPort": 6379,
         "RedisSyncOperationsTimeoutMs": 5000,
+        "RedisBlockingOperationsTimeoutMs": 500,
         "ClientName": "<some_client_name>"
     },
 ...
@@ -114,6 +115,12 @@ public class MyClass
 *Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
 *Description:* Insert the specified value at the head of the list stored at key. If key does not exist, it is created as empty list before performing the push operations.  
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Returns:* The length of the list after the push operations. 
+
+### ListRightPushAsync
+*Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
+*Description:* Insert the specified value at the end of the list stored at key. If key does not exist, it is created as empty list before performing the push operations.  
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The length of the list after the push operations.
 
 ### ListRightPophAsync
@@ -126,13 +133,19 @@ public class MyClass
 *Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
 *Description:*  Pop value from the head of the list stored at key.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
-*Returns:* The first element of the list stored at key.  
+*Returns:* The first element of the list stored at key. 
 
-### ListRightPushAsync
+### ListRighBlockingtPophAsync
 *Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
-*Description:* Insert the specified value at the end of the list stored at key. If key does not exist, it is created as empty list before performing the push operations.  
+*Description:*  Pop value from the end of the list stored at key. If list is empty, operation blocks until someone push data to the list.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
-*Returns:* The length of the list after the push operations.
+*Returns:* The last element of the list stored at key.  
+
+### ListLeftBlockingPopAsync
+*Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
+*Description:*  Pop value from the head of the list stored at key. If list is empty, operation blocks until someone push data to the list.     
+*Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
+*Returns:* The first element of the list stored at key. 
 
 ### ListRemoveAsync
 *Method signature:* `Task<long> ListRemoveAsync(string key, byte[] data);`  
