@@ -5,7 +5,7 @@ Qoollo.Redis.Net is a convinient wrapper over StackExchange.Redis which provide 
 ## Installation
 Qoollo.Redis.Net can be installed via the nuget UI (as Qoollo.Redis.Net), or via the nuget package manager console:
 ```
-PM> Install-Package Qoollo.Redis.Net -Version 1.0.4
+PM> Install-Package Qoollo.Redis.Net -Version 1.0.5
 ```
 After that you need to specify Redis configuration section in appsettings.json
 ```
@@ -124,25 +124,25 @@ public class MyClass
 *Returns:* The length of the list after the push operations.
 
 ### ListRightPophAsync
-*Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
+*Method signature:* `Task<long> ListRightPushAsync(string key);`  
 *Description:* Pop value from the end of the list stored at key.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The last element of the list stored at key.  
 
 ### ListLeftPopAsync
-*Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
+*Method signature:* `Task<long> ListLeftPushAsync(string key);`  
 *Description:*  Pop value from the head of the list stored at key.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The first element of the list stored at key. 
 
 ### ListRighBlockingtPophAsync
-*Method signature:* `Task<long> ListRightPushAsync(string key, byte[] data);`  
+*Method signature:* `Task<long> ListRightPushAsync(string key, CancellationToken stoppingToken);`  
 *Description:*  Pop value from the end of the list stored at key. If list is empty, operation blocks until someone push data to the list.    
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The last element of the list stored at key.  
 
 ### ListLeftBlockingPopAsync
-*Method signature:* `Task<long> ListLeftPushAsync(string key, byte[] data);`  
+*Method signature:* `Task<long> ListLeftPushAsync(string key, CancellationToken stoppingToken);`  
 *Description:*  Pop value from the head of the list stored at key. If list is empty, operation blocks until someone push data to the list.     
 *Exception:* `RedisNotConnectedException` - Raised when there is no connection to Redis.  
 *Returns:* The first element of the list stored at key. 
