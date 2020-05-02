@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using RedisService.Exceptions;
 
@@ -105,14 +106,14 @@ namespace Qoollo.Redis.Net
         /// </summary>
         /// <returns>The first element of the list stored at key</returns>
         /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
-        Task<byte[]> ListLeftBlockingPopAsync(string key);
+        Task<byte[]> ListLeftBlockingPopAsync(string key, CancellationToken stoppingToken);
 
         /// <summary>
         /// Pop value from the end of the list stored at key. If list is empty, operation blocks until someone push data to the list.
         /// </summary>
         /// <returns>The first element of the list stored at key</returns>
         /// <exception cref="RedisNotConnectedException">Raised when there is no connection to Redis.</exception>
-        Task<byte[]> ListRightBlockingPopAsync(string key);
+        Task<byte[]> ListRightBlockingPopAsync(string key, CancellationToken stoppingToken);
 
         /// <summary>
         /// Removes specified value from the list stored under key.

@@ -167,24 +167,24 @@ namespace Qoollo.Redis.Net
             return await _redis.GetDatabase().ListRightPopAsync(key);
         }
         
-        public async Task<byte[]> ListLeftBlockingPopAsync(string key)
+        public async Task<byte[]> ListLeftBlockingPopAsync(string key, CancellationToken stoppingToken)
         {
             var popvalue = await ListLeftPopAsync(key);
-            while (popvalue == null)
+            while (popvalue == null && !stoppingToken.IsCancellationRequested)
             {
-                Thread.Sleep(_configuration.RedisBlockingOperationsTimeoutMs);
+                await Task.Delay(_configuration.RedisBlockingOperationsTimeoutMs, stoppingToken);
                 popvalue = await ListLeftPopAsync(key);
             }
 
             return popvalue;
         }
 
-        public async Task<byte[]> ListRightBlockingPopAsync(string key)
+        public async Task<byte[]> ListRightBlockingPopAsync(string key, CancellationToken stoppingToken)
         {
             var popvalue = await ListRightPopAsync(key);
-            while (popvalue == null)
+            while (popvalue == null && !stoppingToken.IsCancellationRequested)
             {
-                Thread.Sleep(_configuration.RedisBlockingOperationsTimeoutMs);
+                await Task.Delay(_configuration.RedisBlockingOperationsTimeoutMs, stoppingToken);
                 popvalue = await ListRightPopAsync(key);
             }
 
